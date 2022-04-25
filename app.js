@@ -15,6 +15,11 @@ let buttonplus = document.querySelector("#buttonplus");
 let buttonminus = document.querySelector("#buttonminus");
 let buttonx = document.querySelector("#buttonx");
 let buttonequal = document.querySelector("#buttonequal");
+let buttondivision = document.querySelector("#buttondivision");
+let buttonpercent = document.querySelector("#buttonpercent");
+let buttonpoint = document.querySelector("#buttonpoint");
+
+
 
 button0.addEventListener("click", () => {
     result1.innerText += button0.innerText
@@ -79,19 +84,53 @@ buttonx.addEventListener("click", () => {
     result1.innerText = "";
 });
 
+buttondivision.addEventListener("click", () => {
+    result1.innerText += buttondivision.innerText;
+    result2.innerText = result1.innerText;
+    result1.innerText = "";
+});
+
+buttonpercent.addEventListener("click", () => {
+    result1.innerText += buttonpercent.innerText;
+    result2.innerText = result1.innerText;
+    result1.innerText = "";
+});
+
+buttonpoint.addEventListener("click", () => {
+    result1.innerText += buttonpoint.innerText;
+    
+
+} )
+
+
+
+
+
+
+
 buttonequal.addEventListener("click", () => {
     if(result2.innerText[result2.innerText.length -1] == "+") {
-        result1.innerText = parseInt(result2.innerText) + parseInt(result1.innerText);
+        result1.innerText = parseFloat(result2.innerText) + parseFloat(result1.innerText);
         result2.innerText = "";
     }
     else if(result2.innerText[result2.innerText.length -1] == "-") {
-        result1.innerText = parseInt(result2.innerText) - parseInt(result1.innerText)
+        result1.innerText = parseFloat(result2.innerText) - parseFloat(result1.innerText);
         result2.innerText = ""
     }
     else if(result2.innerText[result2.innerText.length -1] == "x") {
-        result1.innerText = parseInt(result2.innerText) * parseInt(result1.innerText)
+        result1.innerText = parseFloat(result2.innerText) * parseFloat(result1.innerText);
         result2.innerText = ""
     }
+    else if(result2.innerText[result2.innerText.length -1] == "÷") {
+        result1.innerText = parseFloat(result2.innerText) / parseFloat(result1.innerText);
+        result2.innerText = "";
+    }
+    else if(result2.innerText[result2.innerText.length -1] == "%") {
+        result1.innerText = (parseFloat(result2.innerText)/100) * parseFloat(result1.innerText);
+        result2.innerText = "";
+    }
+    
+    
 })
 
 
